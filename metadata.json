@@ -1,0 +1,5 @@
+{
+  "name": "Crypto Trading Dashboard",
+  "description": "A sophisticated interface for simulating the buying and selling of top cryptocurrencies. Features a real-time data visualization, a rule-setting form for trades, and controls for enabling or disabling trading activity.",
+  "requestFramePermissions": []
+}
