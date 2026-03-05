@@ -5,7 +5,15 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 
 @Component({
   selector: 'app-root',
-  templateUrl: './app.component.html',
+  template: `
+<main class="min-h-screen">
+  @if (isAuthenticated()) {
+    <app-dashboard (logout)="handleLogout()"></app-dashboard>
+  } @else {
+    <app-auth (loginSuccess)="handleLoginSuccess()"></app-auth>
+  }
+</main>
+  `,
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [CommonModule, AuthComponent, DashboardComponent]
 })

@@ -1,7 +1,0 @@
-<main class="min-h-screen">
-  @if (isAuthenticated()) {
-    <app-dashboard (logout)="handleLogout()"></app-dashboard>
-  } @else {
-    <app-auth (loginSuccess)="handleLoginSuccess()"></app-auth>
-  }
-</main>

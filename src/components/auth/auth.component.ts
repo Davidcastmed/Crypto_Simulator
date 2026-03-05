@@ -3,7 +3,30 @@ import { isPlatformBrowser } from '@angular/common';
 
 @Component({
   selector: 'app-auth',
-  templateUrl: './auth.component.html',
+  template: `
+<div class="flex items-center justify-center min-h-screen bg-gray-900">
+  <div class="w-full max-w-md p-8 space-y-8 bg-gray-800 rounded-2xl shadow-2xl">
+    <div class="text-center">
+      <svg class="mx-auto h-12 w-auto text-indigo-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18.75a60.07 60.07 0 0 1 15.797 2.101c.727.198 1.453-.342 1.453-1.096V18.75M3.75 4.5v.75A.75.75 0 0 1 3 6h-.75m0 0v-.375c0-.621.504-1.125 1.125-1.125H20.25M2.25 6v9m18-10.5v.75c0 .414.336.75.75.75h.75a.75.75 0 0 0 .75-.75V5.25m0 13.5V18a.75.75 0 0 0-.75-.75h-.75a.75.75 0 0 0-.75.75v.75m0 0h.01M12 12h.01M12 15h.01M12 18h.01" />
+      </svg>
+      <h2 class="mt-6 text-3xl font-bold tracking-tight text-white">Crypto Trading Dashboard</h2>
+      <p class="mt-2 text-sm text-gray-400">Connect your wallet to begin simulated trading.</p>
+    </div>
+    
+    <div class="mt-8 space-y-6">
+      <p class="text-center text-xs text-gray-500">
+        This is a simulation environment. No real funds are used.
+      </p>
+      <div>
+        <button (click)="onConnect()" type="button" class="group relative flex w-full justify-center rounded-md border border-transparent bg-indigo-600 py-3 px-4 text-sm font-semibold text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-offset-gray-800 transition-colors duration-300">
+          Connect Wallet
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+  `,
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [],
 })

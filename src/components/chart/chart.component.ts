@@ -2,7 +2,33 @@ import { ChangeDetectionStrategy, Component, computed, input } from '@angular/co
 
 @Component({
   selector: 'app-chart',
-  templateUrl: './chart.component.html',
+  template: `
+<div class="w-full h-full">
+  <svg [attr.viewBox]="viewBox" preserveAspectRatio="none" class="w-full h-full">
+    <defs>
+      <linearGradient [id]="isPositiveChange() ? 'positiveGradient' : 'negativeGradient'" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" [attr.stop-color]="chartColor()" stop-opacity="0.4"/>
+        <stop offset="100%" [attr.stop-color]="chartColor()" stop-opacity="0"/>
+      </linearGradient>
+    </defs>
+
+    <path 
+      [attr.d]="areaPathData()"
+      [attr.fill]="isPositiveChange() ? 'url(#positiveGradient)' : 'url(#negativeGradient)'"
+      stroke="none"
+    />
+
+    <path 
+      [attr.d]="pathData()" 
+      fill="none" 
+      [attr.stroke]="chartColor()"
+      stroke-width="2" 
+      stroke-linecap="round" 
+      stroke-linejoin="round"
+    />
+  </svg>
+</div>
+  `,
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [],
 })
